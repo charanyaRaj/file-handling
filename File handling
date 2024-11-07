@@ -1,0 +1,41 @@
+# Task 1: File Creation with error handling
+try:
+    with open('my_file.txt', 'w') as file:
+        file.write('Line 1: Hello from Python!\
+')
+        file.write('Line 2: The answer is 42\
+')
+        file.write('Line 3: Python file handling is fun\
+')
+    print('File created and written successfully')
+    
+    # Task 2: Reading and displaying content
+    with open('my_file.txt', 'r') as file:
+        print('\
+File contents:')
+        print(file.read())
+    
+    # Task 3: Appending content
+    with open('my_file.txt', 'a') as file:
+        file.write('Line 4: This is an appended line\
+')
+        file.write('Line 5: Another appended line with number 123\
+')
+        file.write('Line 6: Final appended line\
+')
+    print('Content appended successfully')
+    
+    # Verify final content
+    with open('my_file.txt', 'r') as file:
+        print('\
+Final file contents:')
+        print(file.read())
+        
+except FileNotFoundError:
+    print('Error: File not found')
+except PermissionError:
+    print('Error: Permission denied to access the file')
+except Exception as e:
+    print('An unexpected error occurred:', str(e))
+finally:
+    print('File handling operations completed')
